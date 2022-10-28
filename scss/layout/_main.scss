@@ -1,0 +1,123 @@
+@use "../utils/" as u;
+
+main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  h1 {
+    &:hover {
+      color: u.$primaryCyan;
+      cursor: pointer;
+    }
+  }
+  .container {
+    width: 375px;
+    margin: 0 auto;
+    background-color: u.$nVeryDarkBlueCardBG;
+    padding: 1.625rem;
+    border-radius: 0.8rem;
+
+    &__img {
+      width: 100%;
+      margin-bottom: 1rem;
+      position: relative;
+
+      .equilibrium-img {
+        display: block;
+        width: 100%;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        position: static;
+      }
+
+      .view-img {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        //   transform: translate(-50%, -50%);
+      }
+
+      &:hover {
+        cursor: pointer;
+        &::after {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          content: "";
+          background-color: u.$primaryCyan;
+          opacity: 40%;
+          top: 0;
+          left: 0;
+          display: block;
+          z-index: 1;
+          border-radius: 0.5rem;
+        }
+
+        .view-img {
+          display: block;
+        }
+      }
+    }
+
+    &__flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .flex_left {
+        color: u.$primaryCyan;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .flex_right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+    &__line {
+      margin: 1rem 0;
+      border: none;
+      height: 1px;
+      background-color: u.$nVeryDarkBlueLine;
+    }
+
+    &__avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      .avatar_img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid white;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      p {
+        margin-bottom: 0;
+        span {
+          color: u.$nWhite;
+          &:hover {
+            color: u.$primaryCyan;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
